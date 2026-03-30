@@ -20,25 +20,50 @@ public class Test {
 
 		/* Vezbe 2 - zadacici */
 
-		// 1. Inicijalizovati x koordinatu tacke p
-		// na vrednost y koordinate tacke p1
-
+		// 1. Promeniti vrednost x koordinate tacke p
+		// na vrednost y koordinate tacke point2
+		System.out.println("Koordinata x p: " + p.getX());
+		p.setX(point2.getY());
+		System.out.println("Koordinata y point2: " + point2.getY());
+		System.out.println("Koordinata x p: " + p.getX());
+		
+		//promeni y koordinatu tacke point2 na 50
+		point2.setY(50);
+		System.out.println("Koordinata y point2: " + point2.getY());
+		System.out.println("Koordinata x p: " + p.getX());
+		// prenos po vrednosti
 
 		// 2. Postaviti za pocetnu tacku linije l1 tacku p, a
 		// za krajnju tacku linije l1 tacku p1
+		Line l1 = new Line();
+		l1.setStartPoint(p); // po defaultu start point je null
+		System.out.println("Koordinata x p: " + p.getX());
+		System.out.println("Koordinata y p: " + p.getY());
+		System.out.println("Koordinata x pocetne tacke l1: " + l1.getStartPoint().getX());
+		System.out.println("Koordinata y pocetne tacke l1: " + l1.getStartPoint().getY());
+		//prenos po referenci
 
 
 
 		// 3. Postaviti y koordinatu krajnje tacke l1 na 23
+		// l1.getEndPoint().setY(23); - puca zbog NullPointerException
+		// da ne bi bilo NullPointerException-a
+		Point endPoint = new Point();
+		l1.setEndPoint(endPoint);
+		System.out.println("Koordinata y krajnje tacke l1: " + l1.getEndPoint().getY());
+		l1.getEndPoint().setY(23);
+		System.out.println("Koordinata y krajnje tacke l1: " + l1.getEndPoint().getY());
 
 
-		// 4. Inicijalizovati x koordinatu pocetne tacke linije l1
+		// 4. Promeniti vrednost x koordinate pocetne tacke linije l1
 		// na vrednost y koordinate krajnje tacke linije l1
+		l1.getStartPoint().setX(l1.getEndPoint().getY());
 
 
 		// 5. Postaviti x koordinatu krajnje tacke l1 na vrednost
 		// duzine linije l1 umanjene za vrednost zbira x i y
 		// koordinate pocetne tacke linije l1
+		l1.getEndPoint().setX((int)(l1.lenght() - (l1.getStartPoint().getX() + l1.getStartPoint().getY())));
 
 
 		// 6. Postaviti x koordinatu tacke gore levo pravougaonika
