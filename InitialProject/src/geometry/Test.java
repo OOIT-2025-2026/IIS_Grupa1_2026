@@ -77,6 +77,32 @@ public class Test {
 		// 8. Postaviti x koordinatu centra kruga c1 na vrednost razlike
 		// povrsine pravougaonika r1 i y koordinate pocetne tacke linije l1
 
+		//Vezbe 5
+		
+		/*
+		 * Postaviti x koordinatu centra ranije kreiranog kruga circle1 
+		 * na vrednost zbira vrednosti poluprečnika kruga circle1 i 
+		 * vrednosti koja predstavlja udaljenost početne i krajnje tačke 
+		 * prethodno kreirane linije line1 (koristiti metodu distance(),
+		 *  a ne length()). 
+		 */
+		Circle c = new Circle();
+		c.setCenter(new Point());
+		c.setRadius(10);
+		c.getCenter().setX((int)(c.getRadius()+l1.getStartPoint().distance(l1.getEndPoint())));
+	
+		Point p3 = new Point(10, 20);
+		p3.setSelected(true);
+		
+		Point p4 = new Point(10,20,true);
+		System.out.println(p3.toString());
+		
+		System.out.println(p3.equals(p4));
+		System.out.println(p3==p4);
+		
+		p3 = p4;
+		
+		System.out.println(p3==p4);
 
 	}
 
