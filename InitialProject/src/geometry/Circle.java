@@ -26,7 +26,8 @@ public class Circle {
 	}
 	
 	public String toString() {
-		return "Center: " + center + ", radius = " + radius;
+		//return "Center: " + center + ", radius = " + radius;
+		return "Center: " + center.toString() + ", radius = " + radius;
 	}
 
 	public boolean equals(Object obj) {
@@ -34,10 +35,8 @@ public class Circle {
 			Circle pomocna = (Circle) obj;
 			if (this.center.equals(pomocna.center) && this.radius == pomocna.radius)
 				return true;
-			else
-				return false;
-		} else
-			return false;
+		}
+		return false;
 	}
 	
 	//metode pristupa 
