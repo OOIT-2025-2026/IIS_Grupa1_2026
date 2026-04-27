@@ -1,7 +1,7 @@
 package geometry;
 
 public class Circle {
-	private Point center;
+	protected Point center; //nije nasledjivanje vec komponovanje
 	private int radius;
 	private boolean selected;
 	
@@ -39,6 +39,7 @@ public class Circle {
 		return false;
 	}
 	
+	// moze se kreirati i metoda contains(Point tackaKlika)
 	public boolean contains(int x, int y) {
 		Point sadrziTacku = new Point(x, y);
 		return (this.center.distance(sadrziTacku) <= this.radius);

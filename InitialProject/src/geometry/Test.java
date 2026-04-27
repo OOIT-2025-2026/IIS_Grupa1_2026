@@ -103,7 +103,21 @@ public class Test {
 		p3 = p4;
 		
 		System.out.println(p3==p4);
-
+		
+		// npr p4 je tacka klika
+		// da li tacka p3 sadrzi tacku klika?
+		p3.contains(p4.getX(), p4.getY());
+		
+		Donut donut1 = new Donut();
+		donut1.setCenter(p4);
+		Circle donut2 = new Donut(); // i ovo je dozvoljeno
+		donut2.setCenter(p3);
+		//Point donut3 = new Donut(); -- ne moze jer Donut nije tacka
+		donut1.equals(donut2); // mogu i pre override jer je Donut Circle
+		donut1.getRadius();
+		donut1.getInnerRadius();
+		donut1.isSelected();
+		System.out.println(donut1);
 	}
 
 }
