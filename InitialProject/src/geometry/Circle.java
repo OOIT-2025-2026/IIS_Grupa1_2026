@@ -1,9 +1,10 @@
 package geometry;
 
-public class Circle {
+import java.awt.Graphics;
+
+public class Circle extends Shape {
 	protected Point center; //nije nasledjivanje vec komponovanje
 	private int radius;
-	private boolean selected;
 	
 	public Circle() {
 	}
@@ -45,6 +46,13 @@ public class Circle {
 		return (this.center.distance(sadrziTacku) <= this.radius);
 	}
 	
+	
+	@Override
+	public void draw(Graphics g) {
+		g.drawOval(center.getX()-radius, center.getY()-radius, radius*2, radius*2);
+		
+	}
+
 	//metode pristupa 
 	public Point getCenter() {
 		return center;
@@ -57,11 +65,5 @@ public class Circle {
 	}
 	public void setRadius(int radius) {
 		this.radius = radius;
-	}
-	public boolean isSelected() {
-		return selected;
-	}
-	public void setSelected(boolean selected) {
-		this.selected = selected;
 	}
 }

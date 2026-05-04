@@ -1,6 +1,8 @@
 package geometry;
 
-public class Donut extends Circle{
+import java.awt.Graphics;
+
+public class Donut extends Circle {
 	
 	private int innerRadius;
 	
@@ -60,6 +62,13 @@ public class Donut extends Circle{
 	
 	// uraditi za obim kod kuce
 	// a metode pristupa za ostale property nasledjujemo samo ne redefinisemo
+	
+	@Override
+	public void draw(Graphics g) {
+		super.draw(g);
+		g.drawOval(center.getX()-innerRadius, center.getY()-innerRadius, 
+				innerRadius*2, innerRadius*2);
+	}
 	
 	public int getInnerRadius() {
 		return innerRadius;

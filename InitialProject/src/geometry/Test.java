@@ -118,6 +118,18 @@ public class Test {
 		donut1.getInnerRadius();
 		donut1.isSelected();
 		System.out.println(donut1);
+		
+		// Vezbe 6
+		// ne mozemo kreirati objekat klase Shape jer je apstraktna
+		// Shape shape1 = new Shape();
+		// sa leve strane kod deklaracije moze apstraktna klasa ali sa desne mora
+		// konkretna implementacija apst klase
+		Shape shape1 = new Point(50,60, true);
+		// kompajler dozvoljava shape1.toString() jer je toString iz Object klase
+		// a interpreter prilikom izvrsavanja poziva toString iz Pointa zbog new Point()
+		// a tamo je override metode
+		System.out.println(shape1.toString());
+		System.out.println(shape1.isSelected());
 	}
 
 }
