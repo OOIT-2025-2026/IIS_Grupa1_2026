@@ -70,6 +70,20 @@ public class Donut extends Circle {
 				innerRadius*2, innerRadius*2);
 	}
 	
+	// iako je identicna moramo je redefinisati zbog area koja bi se pozivala
+	// inace nad iz Circle a ne iz Donut
+	@Override
+	public int compareTo(Object o) {
+		if (o instanceof Donut) {
+			double povrsinaThis= this.area();
+			double povrsinaParametra = ((Donut) o).area();
+			
+			return (int)(povrsinaThis - povrsinaParametra);
+		}
+
+		return 0;
+	}
+	
 	public int getInnerRadius() {
 		return innerRadius;
 	}

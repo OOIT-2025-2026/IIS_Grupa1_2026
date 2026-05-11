@@ -3,7 +3,7 @@ package geometry;
 import java.awt.Graphics;
 
 // kao ugovor
-public abstract class Shape {
+public abstract class Shape implements Moveable, Comparable{
 	// pravilo enkapsulacije
 	// koristicemo protected umesto private da ne bismo menjali ostale konstruktore
 	protected boolean selected;

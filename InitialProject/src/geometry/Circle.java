@@ -52,6 +52,31 @@ public class Circle extends Shape {
 		g.drawOval(center.getX()-radius, center.getY()-radius, radius*2, radius*2);
 		
 	}
+	
+	// ne treba implementirati i u Donut 
+	// jer im odgovara implementacija koju nasledjuju iz Circle
+	@Override
+	public void moveTo(int x, int y) {
+		center.moveTo(x, y);
+	}
+
+	@Override
+	public void moveBy(int x, int y) {
+		center.moveBy(x, y);
+	}
+	
+	@Override
+	public int compareTo(Object o) {
+		if (o instanceof Circle) {
+			double povrsinaThis= this.area();
+			double povrsinaParametra = ((Circle) o).area();
+			
+			return (int)(povrsinaThis - povrsinaParametra);
+		}
+
+		return 0;
+	}
+
 
 	//metode pristupa 
 	public Point getCenter() {
@@ -66,4 +91,6 @@ public class Circle extends Shape {
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
+
+
 }
