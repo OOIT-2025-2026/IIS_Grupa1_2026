@@ -26,6 +26,7 @@ public class DlgTest extends JDialog {
 	private JTextField txtRed;
 	private JTextField txtGreen;
 	private JTextField txtBlue;
+	protected boolean isOk = false;
 
 	/**
 	 * Launch the application.
@@ -127,7 +128,7 @@ public class DlgTest extends JDialog {
 							int blue = Integer.parseInt(txtBlue.getText());
 							//treba odraditi za sve boje
 							if(red>=0 && red<256) {
-								//isOk=true;
+								isOk=true;
 							}else {
 								JOptionPane.showMessageDialog(null, 
 										"Vrednosti moraju biti u opsegu",
@@ -148,6 +149,11 @@ public class DlgTest extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						setVisible(false);
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
