@@ -20,6 +20,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 
 public class FrmTest extends JFrame {
 
@@ -202,6 +203,53 @@ public class FrmTest extends JFrame {
 		gbc_btnBoje.gridx = 1;
 		gbc_btnBoje.gridy = 0;
 		pnlSouth.add(btnBoje, gbc_btnBoje);
+		
+		JButton btnIzmeniBoju = new JButton("Izmeni boju");
+		btnIzmeniBoju.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DlgTest dlgIzmeniBoju = new DlgTest();
+				int index=listBoje.getSelectedIndex();
+				
+				if (index > -1) {
+					String[] split = dlmBoje.getElementAt(index).toString().split(" ");
+					dlgIzmeniBoju.getTxtRed().setText(split[0]);
+					dlgIzmeniBoju.getTxtGreen().setText(split[1]);
+					dlgIzmeniBoju.getTxtBlue().setText(split[2]);
+					// posle setovanja tekstualnih polja!!
+					dlgIzmeniBoju.setVisible(true);
+					if (dlgIzmeniBoju.isOk) {
+						dlmBoje.setElementAt(dlgIzmeniBoju.getTxtRed().getText() + " "
+								+ dlgIzmeniBoju.getTxtGreen().getText() + " " + dlgIzmeniBoju.getTxtBlue().getText(),
+								index);
+						Color pnlBoja = new Color(Integer.parseInt(dlgIzmeniBoju.getTxtRed().getText()),
+								Integer.parseInt(dlgIzmeniBoju.getTxtGreen().getText()),
+								Integer.parseInt(dlgIzmeniBoju.getTxtBlue().getText()));
+						pnlCenter.setBackground(pnlBoja);
+					} 
+				}
+				
+				
+			}
+		});
+		GridBagConstraints gbc_btnIzmeniBoju = new GridBagConstraints();
+		gbc_btnIzmeniBoju.insets = new Insets(0, 0, 0, 5);
+		gbc_btnIzmeniBoju.gridx = 2;
+		gbc_btnIzmeniBoju.gridy = 0;
+		pnlSouth.add(btnIzmeniBoju, gbc_btnIzmeniBoju);
+		
+		JButton btnIzaberiBoju = new JButton("Izaberi boju");
+		btnIzaberiBoju.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Color izabranaBoja = JColorChooser.showDialog(null, "Izaberi boju",
+						Color.black);
+				pnlCenter.setBackground(izabranaBoja);
+			}
+		});
+		GridBagConstraints gbc_btnIzaberiBoju = new GridBagConstraints();
+		gbc_btnIzaberiBoju.insets = new Insets(0, 0, 0, 5);
+		gbc_btnIzaberiBoju.gridx = 3;
+		gbc_btnIzaberiBoju.gridy = 0;
+		pnlSouth.add(btnIzaberiBoju, gbc_btnIzaberiBoju);
 		
 		JPanel pnlNorth = new JPanel();
 		pnlNorth.setBackground(new Color(0, 255, 128));
