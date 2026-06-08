@@ -152,6 +152,32 @@ public class DlgTest extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		
+		
 	}
 
+	public JTextField getTxtRed() {
+		return txtRed;
+	}
+
+	public void setTxtRed(JTextField txtRed) {
+		this.txtRed = txtRed;
+	}
+
+	public JTextField getTxtGreen() {
+		return txtGreen;
+	}
+
+	public void setTxtGreen(JTextField txtGreen) {
+		this.txtGreen = txtGreen;
+	}
+
+	public JTextField getTxtBlue() {
+		return txtBlue;
+	}
+
+	public void setTxtBlue(JTextField txtBlue) {
+		this.txtBlue = txtBlue;
+	}
+	
 }

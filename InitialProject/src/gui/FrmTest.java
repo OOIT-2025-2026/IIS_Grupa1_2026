@@ -183,6 +183,16 @@ public class FrmTest extends JFrame {
 				DlgTest dlgTest = new DlgTest();
 				dlgTest.setVisible(true);
 				
+				dlmBoje.addElement(dlgTest.getTxtRed().getText()+" "
+						+dlgTest.getTxtGreen().getText()+" "
+						+dlgTest.getTxtBlue().getText());
+				Color pnlBoja = new Color(
+						Integer.parseInt(dlgTest.getTxtRed().getText()),
+						Integer.parseInt(dlgTest.getTxtGreen().getText()),
+						Integer.parseInt(dlgTest.getTxtBlue().getText()));
+				pnlCenter.setBackground(pnlBoja);
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnBoje = new GridBagConstraints();
