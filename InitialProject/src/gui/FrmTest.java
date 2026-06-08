@@ -177,6 +177,20 @@ public class FrmTest extends JFrame {
 		gbc_btnAntistresDugme.gridy = 0;
 		pnlSouth.add(btnAntistresDugme, gbc_btnAntistresDugme);
 		
+		JButton btnBoje = new JButton("Dodaj boju");
+		btnBoje.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DlgTest dlgTest = new DlgTest();
+				dlgTest.setVisible(true);
+				
+			}
+		});
+		GridBagConstraints gbc_btnBoje = new GridBagConstraints();
+		gbc_btnBoje.insets = new Insets(0, 0, 0, 5);
+		gbc_btnBoje.gridx = 1;
+		gbc_btnBoje.gridy = 0;
+		pnlSouth.add(btnBoje, gbc_btnBoje);
+		
 		JPanel pnlNorth = new JPanel();
 		pnlNorth.setBackground(new Color(0, 255, 128));
 		contentPane.add(pnlNorth, BorderLayout.NORTH);
